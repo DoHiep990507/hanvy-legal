@@ -1,0 +1,92 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Hanvy Privacy Policy</title>
+<style>
+  :root {
+    --bg: #f7f8f6; --surface: #ffffff; --fg: #10151a; --muted: #5b6670;
+    --accent: #1f9e73; --border: #e3e7e3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1220; --surface: #10182a; --fg: #eef4f0; --muted: #9db0ac;
+      --accent: #7fdeb6; --border: #223049; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1220; --surface: #10182a; --fg: #eef4f0; --muted: #9db0ac;
+    --accent: #7fdeb6; --border: #223049; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding-block: 48px;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+  h1 { font-size: clamp(28px, 6vw, 38px); font-weight: 800; letter-spacing: -0.01em; margin: 0 0 6px; text-wrap: balance; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0 0 36px; }
+  section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  p { font-size: 16px; line-height: 1.65; color: var(--fg); margin: 0; max-width: 62ch; }
+  strong { color: var(--accent); font-weight: 600; }
+  footer { margin-top: 12px; color: var(--muted); font-size: 13px; }
+  a { color: var(--accent); }
+</style>
+<main>
+  <div class="eyebrow">Hanvy</div>
+  <h1>Chính sách quyền riêng tư</h1>
+  <p class="updated">Cập nhật lần cuối: 29/10/2026</p>
+
+  <section>
+    <h2>1. Dữ liệu được xử lý</h2>
+    <p>Hanvy lưu tiến độ học trên thiết bị. Nếu bạn chọn đăng nhập và đồng ý đồng bộ, app gửi Firebase Authentication thông tin định danh tài khoản từ Apple hoặc Google, chẳng hạn mã người dùng, tên hiển thị và email nếu nhà cung cấp trả về. App lưu bản tiến độ gồm trạng thái thẻ từ, hoạt động học theo ngày và cài đặt học lên Cloud Firestore để khôi phục khi đổi thiết bị.</p>
+  </section>
+
+  <section>
+    <h2>2. Bảng xếp hạng</h2>
+    <p>Nếu dùng tài khoản, Hanvy gửi tên hiển thị, avatar và điểm học trong tuần lên Cloud Firestore để hiển thị bảng xếp hạng. Người dùng khác có thể nhìn thấy các thông tin này trong bảng xếp hạng. Điểm được tính từ hoạt động học trong app.</p>
+  </section>
+
+  <section>
+    <h2>3. Giọng nói và micro</h2>
+    <p>Khi bạn mở shadowing và cho phép, app thu âm trong lúc bạn chủ động bắt đầu ghi để nhận dạng câu và chấm phát âm. Audio tạm được lưu trong thư mục tạm của app để bạn nghe lại, rồi được xóa khi đóng phiên shadowing. App yêu cầu nhận dạng trên thiết bị nếu thiết bị hỗ trợ; nếu không, Apple Speech có thể gửi audio đến máy chủ Apple để nhận dạng. Hanvy không gửi bản ghi giọng nói lên Firebase hay máy chủ riêng.</p>
+  </section>
+
+  <section>
+    <h2>4. Nhà cung cấp dịch vụ</h2>
+    <p>Đăng nhập được xử lý bởi Apple hoặc Google và Firebase Authentication. Khi bật đồng bộ, dữ liệu học và bảng xếp hạng được lưu bằng Firebase Cloud Firestore. Firebase SDK cũng có thể xử lý một số metadata kỹ thuật của app và thiết bị để cung cấp dịch vụ. Nhận dạng giọng nói dùng Apple Speech. Giao dịch trong app do Apple xử lý qua StoreKit; Hanvy không nhận thông tin thẻ thanh toán.</p>
+  </section>
+
+  <section>
+    <h2>5. Lựa chọn và quyền kiểm soát</h2>
+    <p>Bạn có thể dùng phần học chính mà không đăng nhập; khi đó tiến độ chỉ lưu trên thiết bị. Bạn có thể từ chối đồng bộ hoặc đăng xuất để dừng các lần đồng bộ tiếp theo. Dữ liệu đã lưu trên Firebase vẫn được giữ cho đến khi bạn chọn <strong>Xóa tài khoản</strong> trong mục <strong>Tôi → tài khoản</strong>. Gỡ ứng dụng sẽ xóa tiến độ lưu cục bộ, nhưng không xóa dữ liệu đã đồng bộ trên Firebase.</p>
+  </section>
+
+  <section>
+    <h2>6. Lưu giữ và xóa dữ liệu</h2>
+    <p>Dữ liệu đám mây được giữ trong thời gian tài khoản còn hoạt động. Khi bạn xác thực và xác nhận xóa tài khoản trong app, Hanvy xóa hồ sơ tiến độ trên Firestore, các mục bảng xếp hạng và tài khoản Firebase Authentication. Tiến độ trên thiết bị cũng bị xóa. Việc xóa tài khoản Hanvy không tự hủy giao dịch hoặc gói đăng ký Apple; quản lý đăng ký thực hiện trong cài đặt Apple ID.</p>
+  </section>
+
+  <section>
+    <h2>7. Thay đổi chính sách</h2>
+    <p>Chính sách này có thể được cập nhật khi cách app xử lý dữ liệu thay đổi. Phiên bản mới sẽ được đăng trong app và tại trang chính sách của Hanvy.</p>
+  </section>
+
+  <section>
+    <h2>8. Liên hệ</h2>
+    <p>Nếu có câu hỏi hoặc cần hỗ trợ về dữ liệu cá nhân, vui lòng liên hệ: <strong>hiepzxc16@gmail.com</strong>.</p>
+  </section>
+
+  <footer>Hanvy — app học từ vựng HSK 3.0 cho người Việt.</footer>
+</main>

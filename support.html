@@ -1,0 +1,103 @@
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Hanvy Support</title>
+<style>
+  :root {
+    --bg: #f7f8f6; --surface: #ffffff; --fg: #10151a; --muted: #5b6670;
+    --accent: #1f9e73; --border: #e3e7e3;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b1220; --surface: #10182a; --fg: #eef4f0; --muted: #9db0ac;
+      --accent: #7fdeb6; --border: #223049; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1220; --surface: #10182a; --fg: #eef4f0; --muted: #9db0ac;
+    --accent: #7fdeb6; --border: #223049; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: "Inter", -apple-system, "Segoe UI", sans-serif;
+    padding-left: max(20px, env(safe-area-inset-left, 0px));
+    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding-block: 48px;
+  }
+  main { max-width: 640px; margin: 0 auto; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: var(--accent); }
+  h1 { font-size: clamp(28px, 6vw, 38px); font-weight: 800; letter-spacing: -0.01em; margin: 0 0 10px; text-wrap: balance; }
+  .lede { color: var(--muted); font-size: 16px; line-height: 1.6; margin: 0 0 36px; max-width: 56ch; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px; margin-bottom: 16px;
+  }
+  .card h2 { font-size: 15px; font-weight: 700; margin: 0 0 8px; }
+  .card p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 14px; }
+  .contact {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 16px; font-size: 15px; font-weight: 600;
+  }
+  button {
+    font: inherit; font-weight: 700; font-size: 13px; color: var(--bg); background: var(--accent);
+    border: none; border-radius: 8px; padding: 8px 14px; cursor: pointer;
+  }
+  button:active { opacity: 0.85; }
+  .faq dt { font-weight: 700; margin-top: 16px; }
+  .faq dt:first-child { margin-top: 0; }
+  .faq dd { margin: 4px 0 0; color: var(--muted); font-size: 15px; line-height: 1.6; }
+  footer { margin-top: 28px; color: var(--muted); font-size: 13px; }
+</style>
+<main>
+  <div class="eyebrow">Hanvy</div>
+  <h1>Hỗ trợ</h1>
+  <p class="lede">Câu hỏi về tài khoản, gói Học trọn, hay báo lỗi — liên hệ trực tiếp, mình trả lời trong vòng 48 giờ.</p>
+
+  <div class="card">
+    <h2>Liên hệ</h2>
+    <p>Gửi email kèm mô tả ngắn và ảnh chụp màn hình nếu có lỗi hiển thị.</p>
+    <div class="contact">
+      <span id="email">hiepzxc16@gmail.com</span>
+      <button id="copyBtn" type="button">Sao chép</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Câu hỏi thường gặp</h2>
+    <dl class="faq">
+      <dt>Gói Học trọn khác gì HSK1–2 miễn phí?</dt>
+      <dd>HSK1 và HSK2 luôn miễn phí, không quảng cáo. Gói Học trọn mở HSK3 trở lên, đến HSK7–9, cùng âm Hán Việt và phát âm cho mọi từ.</dd>
+      <dt>Làm sao hủy gói đăng ký?</dt>
+      <dd>Vào Cài đặt trên iPhone → tên của bạn → Đăng ký → chọn Hanvy để hủy hoặc đổi gói bất cứ lúc nào.</dd>
+      <dt>Tôi đã mua gói mà app chưa mở khóa?</dt>
+      <dd>Vào Hồ sơ trong app rồi chọn Khôi phục giao dịch. Nếu vẫn chưa được, gửi email kèm email Apple ID đã mua.</dd>
+      <dt>Xóa tài khoản và dữ liệu thế nào?</dt>
+      <dd>Vào Tôi → tài khoản → Xóa tài khoản. Chi tiết dữ liệu được xử lý ra sao nằm trong Chính sách quyền riêng tư của Hanvy.</dd>
+    </dl>
+  </div>
+
+  <footer>Hanvy — app học từ vựng HSK 3.0 cho người Việt.</footer>
+</main>
+<script>
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    const text = document.getElementById('email').textContent;
+    const btn = document.getElementById('copyBtn');
+    try {
+      await navigator.clipboard.writeText(text);
+      btn.textContent = 'Đã chép';
+    } catch {
+      const range = document.createRange();
+      range.selectNodeContents(document.getElementById('email'));
+      const sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+      btn.textContent = 'Đã chọn';
+    }
+    setTimeout(() => { btn.textContent = 'Sao chép'; }, 1500);
+  });
+</script>
