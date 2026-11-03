@@ -46,36 +46,36 @@
 <main>
   <div class="eyebrow">Hanvy</div>
   <h1>Chính sách quyền riêng tư</h1>
-  <p class="updated">Cập nhật lần cuối: 29/10/2026</p>
+  <p class="updated">Cập nhật lần cuối: 03/11/2026</p>
 
   <section>
     <h2>1. Dữ liệu được xử lý</h2>
-    <p>Hanvy lưu tiến độ học trên thiết bị. Nếu bạn chọn đăng nhập và đồng ý đồng bộ, app gửi Firebase Authentication thông tin định danh tài khoản từ Apple hoặc Google, chẳng hạn mã người dùng, tên hiển thị và email nếu nhà cung cấp trả về. App lưu bản tiến độ gồm trạng thái thẻ từ, hoạt động học theo ngày và cài đặt học lên Cloud Firestore để khôi phục khi đổi thiết bị.</p>
+    <p>Hanvy lưu tiến độ học trên thiết bị. Nếu bạn chọn đăng nhập và đồng ý đồng bộ, app gửi Supabase Auth thông tin định danh tài khoản từ Apple hoặc Google, chẳng hạn mã người dùng, tên hiển thị và email nếu nhà cung cấp trả về. App lưu bản tiến độ gồm trạng thái thẻ từ, hoạt động học theo ngày và cài đặt học (bảng <code>progress</code>) lên Supabase để khôi phục khi đổi thiết bị.</p>
   </section>
 
   <section>
     <h2>2. Bảng xếp hạng</h2>
-    <p>Nếu dùng tài khoản, Hanvy gửi tên hiển thị, avatar và điểm học trong tuần lên Cloud Firestore để hiển thị bảng xếp hạng. Người dùng khác có thể nhìn thấy các thông tin này trong bảng xếp hạng. Điểm được tính từ hoạt động học trong app.</p>
+    <p>Nếu dùng tài khoản, Hanvy gửi tên hiển thị, avatar và điểm học trong tuần (bảng <code>league_entries</code>) lên Supabase để hiển thị bảng xếp hạng. Người dùng khác có thể nhìn thấy các thông tin này trong bảng xếp hạng. Điểm được tính từ hoạt động học trong app.</p>
   </section>
 
   <section>
     <h2>3. Giọng nói và micro</h2>
-    <p>Khi bạn mở shadowing và cho phép, app thu âm trong lúc bạn chủ động bắt đầu ghi để nhận dạng câu và chấm phát âm. Audio tạm được lưu trong thư mục tạm của app để bạn nghe lại, rồi được xóa khi đóng phiên shadowing. App yêu cầu nhận dạng trên thiết bị nếu thiết bị hỗ trợ; nếu không, Apple Speech có thể gửi audio đến máy chủ Apple để nhận dạng. Hanvy không gửi bản ghi giọng nói lên Firebase hay máy chủ riêng.</p>
+    <p>Khi bạn mở shadowing và cho phép, app thu âm trong lúc bạn chủ động bắt đầu ghi để nhận dạng câu và chấm phát âm. Audio tạm được lưu trong thư mục tạm của app để bạn nghe lại, rồi được xóa khi đóng phiên shadowing. App yêu cầu nhận dạng trên thiết bị nếu thiết bị hỗ trợ; nếu không, Apple Speech có thể gửi audio đến máy chủ Apple để nhận dạng. Hanvy không gửi bản ghi giọng nói lên Supabase hay máy chủ riêng.</p>
   </section>
 
   <section>
     <h2>4. Nhà cung cấp dịch vụ</h2>
-    <p>Đăng nhập được xử lý bởi Apple hoặc Google và Firebase Authentication. Khi bật đồng bộ, dữ liệu học và bảng xếp hạng được lưu bằng Firebase Cloud Firestore. Firebase SDK cũng có thể xử lý một số metadata kỹ thuật của app và thiết bị để cung cấp dịch vụ. Nhận dạng giọng nói dùng Apple Speech. Giao dịch trong app do Apple xử lý qua StoreKit; Hanvy không nhận thông tin thẻ thanh toán.</p>
+    <p>Đăng nhập được xử lý bởi Apple hoặc Google và Supabase Auth. Khi bật đồng bộ, dữ liệu học và bảng xếp hạng được lưu trên Supabase (bật Row Level Security theo <code>auth.uid()</code>, mỗi người dùng chỉ truy cập được dữ liệu của chính mình). Nhận dạng giọng nói dùng Apple Speech. Giao dịch trong app do Apple xử lý qua StoreKit; Hanvy không nhận thông tin thẻ thanh toán.</p>
   </section>
 
   <section>
     <h2>5. Lựa chọn và quyền kiểm soát</h2>
-    <p>Bạn có thể dùng phần học chính mà không đăng nhập; khi đó tiến độ chỉ lưu trên thiết bị. Bạn có thể từ chối đồng bộ hoặc đăng xuất để dừng các lần đồng bộ tiếp theo. Dữ liệu đã lưu trên Firebase vẫn được giữ cho đến khi bạn chọn <strong>Xóa tài khoản</strong> trong mục <strong>Tôi → tài khoản</strong>. Gỡ ứng dụng sẽ xóa tiến độ lưu cục bộ, nhưng không xóa dữ liệu đã đồng bộ trên Firebase.</p>
+    <p>Bạn có thể dùng phần học chính mà không đăng nhập; khi đó tiến độ chỉ lưu trên thiết bị. Bạn có thể từ chối đồng bộ hoặc đăng xuất để dừng các lần đồng bộ tiếp theo. Dữ liệu đã lưu trên Supabase vẫn được giữ cho đến khi bạn chọn <strong>Xóa tài khoản</strong> trong mục <strong>Tôi → tài khoản</strong>. Gỡ ứng dụng sẽ xóa tiến độ lưu cục bộ, nhưng không xóa dữ liệu đã đồng bộ trên Supabase.</p>
   </section>
 
   <section>
     <h2>6. Lưu giữ và xóa dữ liệu</h2>
-    <p>Dữ liệu đám mây được giữ trong thời gian tài khoản còn hoạt động. Khi bạn xác thực và xác nhận xóa tài khoản trong app, Hanvy xóa hồ sơ tiến độ trên Firestore, các mục bảng xếp hạng và tài khoản Firebase Authentication. Tiến độ trên thiết bị cũng bị xóa. Việc xóa tài khoản Hanvy không tự hủy giao dịch hoặc gói đăng ký Apple; quản lý đăng ký thực hiện trong cài đặt Apple ID.</p>
+    <p>Dữ liệu đám mây được giữ trong thời gian tài khoản còn hoạt động. Khi bạn xác thực và xác nhận xóa tài khoản trong app, Hanvy xóa hồ sơ tiến độ, các mục bảng xếp hạng và tài khoản trên Supabase. Tiến độ trên thiết bị cũng bị xóa. Việc xóa tài khoản Hanvy không tự hủy giao dịch hoặc gói đăng ký Apple; quản lý đăng ký thực hiện trong cài đặt Apple ID.</p>
   </section>
 
   <section>
